@@ -1,0 +1,147 @@
+{
+    "productos": [
+        {
+            "id": "1",
+            "nombre": "Limon con semilla",
+            "imagen": "",
+            "precio": "39.9",
+            "oferta": "26.82",
+            "descuento": "32%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "2",
+            "nombre": "Tomate",
+            "precio": "32.9",
+            "oferta": "21.79",
+            "descuento": "32%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "3",
+            "nombre": "Aguacate Hass",
+            "precio": "69.9",
+            "oferta": "56.8",
+            "descuento": "18%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "4",
+            "nombre": "Nopal Limpio",
+            "precio": "29.9",
+            "oferta": "25.8",
+            "descuento": "13%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "5",
+            "nombre": "Tomate verde sin cascara",
+            "precio": "24.9",
+            "oferta": "22.89",
+            "descuento": "8%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "6",
+            "nombre": "Fresas",
+            "precio": "24.9",
+            "oferta": "22.89",
+            "descuento": "",
+            "categoria": "oferta"
+        },
+        {
+            "id": "7",
+            "nombre": "Pechuga de Pavo",
+            "precio": "62.5",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "8",
+            "nombre": "Pan Bimbo",
+            "precio": "38.9",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "9",
+            "nombre": "Mayonesa",
+            "precio": "48.5",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "10",
+            "nombre": "Crema Dental",
+            "precio": "35.5",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "11",
+            "nombre": "Huevos Acodorniz",
+            "precio": "37.5",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "12",
+            "nombre": "Dolex Gripa",
+            "precio": "29.9",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "13",
+            "nombre": "Zanahoria",
+            "precio": "39.9",
+            "oferta": "26.82",
+            "descuento": "32%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "14",
+            "nombre": "VapoRub",
+            "precio": "19.9",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        },
+        {
+            "id": "15",
+            "nombre": "Pimentón",
+            "precio": "39.9",
+            "oferta": "26.82",
+            "descuento": "32%",
+            "categoria": "oferta"
+        },
+        {
+            "id": "16",
+            "nombre": "Next Gripa",
+            "precio": "79.9",
+            "oferta": "",
+            "descuento": "",
+            "categoria": "popular"
+        }
+    ],
+    "usuarios": [
+        {
+            "id": "1",
+            "nombre": "Pepito",
+            "Apellido": "Perez",
+            "Correo": "pepito@gmail.com"
+        },
+        {
+            "id": "2",
+            "nombre": "Tom",
+            "Apellido": "Alejandro",
+            "Correo": "tom@gmail.com"
+        }
+    ]
+}

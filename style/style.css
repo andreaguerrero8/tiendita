@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(230, 230, 230, 0.705);
+    overflow-x: hidden;
+}
+
+.navbar{
+    display: flex;
+    align-items:center;
+    padding: 1% 3%;
+    background-color: white;
+}
+
+.navbar-collapse{
+    display: flex;
+    justify-content: end;
+    align-items: center
+    
+}
+
+
+.icon{
+    background-color: #0AC763;
+    width:9%;
+    height: 40px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-left: 2%;
+    text-decoration:none;
+    color:white;
+    border-radius: 10px;
+    padding:10px;
+}
+
+
+.imgIcon{
+    width:25px;
+    text-decoration: none;
+    color:white;
+    
+}
+
+.iconUbica{
+    color: orange;
+    width:2.8%;
+    height:10%;
+    padding-right: 5px;
+}
+main{
+   
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 3%;
+
+}
+.publicidad{
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/verduras.jpg);
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    z-index: 1;
+}
+
+.publicidad::after {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(252, 70, 45, 0.24);
+    z-index:-1;
+  }
+.publicidad .textos {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.publicidad .textos {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.intro{
+    color:white; 
+}
+
+/* cards */
+.sectionCards{
+    background-color: white;
+    padding:3%;
+    border-radius: 15px;
+    margin-top: 2%;
+}
+.cardss{
+    display: flex;
+    align-items:center;
+    overflow-x: scroll;
+
+}
+
+.tarjetas{
+    width: 25%;
+    height: 90%;
+    padding: 2% 0;
+}
+
+.tarjetas p{
+    font-size:1rem;
+}
+
+.divText{
+    margin-top: 12%;
+}
+
+.precio{
+    font-size:1.5rem;
+}
+
+.descuento{
+    text-align: center;
+    background-color: #F0E3FE;
+    color: #5E18BB;
+    width:26%;
+    border-radius: 20px;
+}
+
+.descuento h6{
+    font-size: .8rem;
+    font-weight:700
+}
+
+.nombre{
+    width: 70%;
+    border:none;
+    background-color: #0AC763;
+    padding: 3%;
+    border-radius:8px;
+    color: white;
+
+    margin-top: 3%;
+}
+
+
+/*footer*/
+
+.footer{
+    margin-top:7%;
+    background-color: white;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:3% 7% 3% 3%;
+}
+
+
+.footer li{
+    list-style:none;
+    font-weight: 600;
+    margin: 12% 0;
+    
+}
+
+.columFooter a{
+    text-decoration:none;
+    color: black;
+    font-weight: 600;
+}
+
+.copy{
+    text-align: center;
+    padding: 1.5% 0;
+    color: gray;
+    background-color:white;
+
+}
