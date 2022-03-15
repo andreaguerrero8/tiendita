@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +8,7 @@
 }
 
 body{
-    background-color: rgba(230, 230, 230, 0.705);
+    background-color: #F1F1EF;
     overflow-x: hidden;
 }
 
@@ -38,6 +41,11 @@ body{
     padding:10px;
 }
 
+.icon:hover{
+    text-decoration:none;
+    color:white;
+}
+
 
 .imgIcon{
     width:25px;
@@ -49,8 +57,7 @@ body{
 .iconUbica{
     color: orange;
     width:2.8%;
-    height:10%;
-    padding-right: 5px;
+    height:3%;
 }
 main{
    
@@ -63,7 +70,7 @@ main{
     height: 250px;
     background-position: center;
     background-size: cover;
-    background-image: url(../images/verduras.jpg);
+    background-image: url(https://res.cloudinary.com/dhu8kck7f/image/upload/v1647101567/verduras_oryxeb.jpg);
     overflow: hidden;
     border-radius: 20px;
     display: flex;
@@ -106,17 +113,24 @@ main{
     border-radius: 15px;
     margin-top: 2%;
 }
+
+.sectionCards h3{
+    margin-left: 2%;
+}
+
 .cardss{
     display: flex;
+    width: 100%;
     align-items:center;
     overflow-x: scroll;
+    overflow-y: hidden;
 
 }
 
 .tarjetas{
-    width: 25%;
-    height: 90%;
-    padding: 2% 0;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5%
 }
 
 .tarjetas p{
@@ -127,16 +141,31 @@ main{
     margin-top: 12%;
 }
 
+.imgCard{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:3%
+}
+
+.imgCard img{
+     width: 195px;
+     height:195px
+}
+
 .precio{
-    font-size:1.5rem;
+    font-size:1.2rem;
 }
 
 .descuento{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #F0E3FE;
     color: #5E18BB;
-    width:26%;
+    width:36%;
     border-radius: 20px;
+    
 }
 
 .descuento h6{
@@ -144,16 +173,546 @@ main{
     font-weight:700
 }
 
-.nombre{
-    width: 70%;
+.agregar{
+    width: 100%;
     border:none;
     background-color: #0AC763;
     padding: 3%;
     border-radius:8px;
     color: white;
-
-    margin-top: 3%;
 }
+
+/*modal*/
+
+
+.modal h4{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.inputModal{
+    width:99%; 
+    border:none;
+}
+
+.btnModal{
+    width:100%;
+    border:none;
+    padding: 1.5%;
+    border-radius: 5px;
+    background-color: #0AC763;
+    color: white;
+}
+
+.modal-header{
+    border-bottom:  none;
+}
+.btn-close{
+    background-color: black;
+    color: white;
+    border-radius:30px;
+    opacity: .9;
+    padding:0;
+    height:2rem;
+    width:2rem
+
+}
+.btn-close:hover{
+    background-color: black;
+    opacity: .9;
+    color: white;
+}
+
+.btnCiudad{
+    border: none;
+    padding:0 2%;
+    background-color:transparent;
+    border-right: 2px solid grey;
+}
+
+.input-icono {
+    background-image: url('../images/logoUbica.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 4%;
+    padding-left: 40px;
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 5px
+  }
+
+  .input-icono input:focus {
+    outline: none;
+  }
+
+
+
+
+/*----modal detalle--*/
+.modal {
+    padding: 0  5%
+}
+
+.modal h3 h5 p{
+    font-family: 'Poppins', sans-serif;
+}
+
+#modal-dialog{
+    max-width: 780px;
+}
+
+.modal-content{
+    border-radius: 15px;
+}
+
+.inputModal{
+    width:99%; 
+    border:none;
+}
+
+.btnModal{
+    width:100%;
+    border:none;
+    padding: 1.5%;
+    border-radius: 5px;
+    background-color: #0AC763;
+    color: white;
+}
+
+
+.btn-close:hover{
+    background-color: black;
+    opacity: .9;
+    color: white;
+}
+
+.modal-body-detalle{
+    padding:0 1rem 1rem 1rem;
+}
+
+.iva{
+    font-size:.9rem
+}
+
+.pesoAprox{
+    font-size: .95rem
+}
+
+.modal-dialog-centered {
+    min-height: calc(100% - 15.5rem);
+}
+
+.modal-header .btn-close{
+    padding:0;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+.agregarDetalle{
+    width: 40%;
+    border:none;
+    background-color: #0AC763;
+    padding: 2%;
+    border-radius:8px;
+    color: white;
+}
+.contBtnsPeso{
+    display: flex;
+    align-items: center;
+}
+
+.pesoBtns{
+    display: flex;
+    align-items: center;
+    padding: 1% 6%;
+    box-shadow: 0 10px 10px -9px black;
+    margin: 0 3%;
+    font-size: 1.3rem;
+    width: 40%;
+
+}
+
+.pesoBtns p{
+    display: flex;
+    align-items: center;
+}
+
+
+.btnPesoIncremento{
+    width: 1.5rem;
+    height:2rem;
+    border:none;
+    background-color:transparent;
+
+}
+
+.btnPesoDecremento{
+    width: 1.5rem;
+    height:2rem;
+    border:none;
+    background-color:transparent;
+
+}
+#textCantidad{
+    outline: none;
+    width: 35%;
+    border: transparent;
+    text-align: center;
+}
+
+
+/**---- cards Dentro de detalle-----**/
+
+/**---- cards Dentro de detalle-----**/
+
+
+.cardsss{
+    display: flex;
+    width: 100%;
+    align-items:center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 0 3%;
+    margin-top: 5%
+
+}
+.h3CardsDetalle{
+    padding: 0 3%;
+    margin-top: 12%;
+}
+
+.tarjetasss{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5%;
+    width: 25%;
+}
+
+.tarjetasss p{
+    font-size:.8rem;
+}
+
+.divTextsss{
+    margin-top: 12%;
+}
+
+.imgCardsss{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:3%
+}
+
+.imgCardsss img{
+     width: 150px;
+     height:150px
+}
+
+.precio{
+    font-size:1rem;
+}
+
+.descuentosss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F0E3FE;
+    color: #5E18BB;
+    width:60%;
+    border-radius: 20px;
+    
+}
+
+.descuentosss h6{
+    font-size: .7rem;
+    font-weight:700
+}
+
+.agregar{
+    width: 100%;
+    border:none;
+    background-color: #0AC763;
+    padding: 3%;
+    border-radius:8px;
+    color: white;
+}
+
+
+/*-----modal carro....-*/
+
+#modal-dialog {
+    position: relative;
+    width: auto;
+    pointer-events: none;
+}
+
+
+#exampleModalCarrito {
+    position: fixed;
+    top: -30px;
+    left: 830px;
+    z-index: 1055;
+    display: none;
+    width: 45%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    right: -3
+}
+
+.modalito{
+    width: 100%;
+    display:flex;
+
+}
+
+.modalito img{
+    width: 80%;
+}
+
+.modalito .textModal{
+    width: 100%;
+    flex-direction: column;
+}
+
+#modal-header-carrito{
+    display: flex;
+    padding:3% 2%
+}
+#modal-content-carrito{
+    border-radius: 0;
+}
+
+.pesoCar{
+    align-items: center;
+    display: flex;
+    padding: 0 6%;
+    box-shadow: 0 10px 10px -9px black;
+    margin: 0 3%;
+    font-size: 1.3rem;
+    height: 40px
+
+}
+
+.pesoCar p{
+    display: flex;
+    margin: 0 10%;
+    
+}
+
+.CarritoVacio{
+    
+    margin: 20% auto;
+    text-align:center;
+}
+
+.CarritoVacio img{
+    width: 50%;
+}
+
+
+.agregarDetalleVacio{
+    width: 40%;
+    border:none;
+    background-color: #0AC763;
+    padding: 2%;
+    border-radius:8px;
+    color: white;
+}
+
+#modal-footer-carrito{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.btnVaciarCanasta{
+    border: none;
+    background-color: transparent;
+    color: #B8B4B4;
+    font-size: 1.2rem
+}
+
+.btnPagar{
+    display: flex;
+    justify-content:space-around;
+    width: 55%;
+    height: 40px;
+    margin-right:3%;
+    background-color: #0AC763;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 10px;
+    text-decoration: none;
+
+    
+}
+
+.btnPagar .p1{
+    width: 10%;
+    background-color: #2E7E78;
+    border-radius:5px;
+    font-weight: 700
+}
+
+#btnPagar{
+    text-decoration: none;
+    color: white;
+}
+
+
+#btn-close-carro{
+    margin-top: 0;
+    margin-right: 5%;
+}
+
+
+
+span{
+    color: #B8B4B4
+}
+
+
+
+/*-------------pagina Pago------------------*/
+
+
+.contenedorBodyRow{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content:space-between;
+    width: 95%;
+    font-size: 14px
+
+}
+
+.productosPago{
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 15px;
+    height:auto;
+    padding: 3% 0;
+    margin:5% 1% 5% 5%;
+}
+
+.pago{
+
+    width: 43%;
+    height:auto;
+    margin: 0 auto;
+    margin-top:5%;
+    display: flex;
+    justify-content:center
+}
+
+.pago form{
+    display: flex;
+    padding-left: 12%;
+    flex-direction: column;
+    width: 100%;
+}
+
+.label{
+    padding-bottom: 2%;
+}
+.inputPagoFinal{
+    border: .2px solid rgba(60, 66, 87, 0.12);
+    border-radius: 7px;
+    padding:  1% 4%;
+    width:70%;
+}
+
+.inputPagoFinalData{
+    width: 35%;
+    border: .2px solid rgba(60, 66, 87, 0.12);
+    padding:  1% 4%;
+    display:initial;
+    margin: 0;
+    border-radius: 7px;
+}
+
+.inputPagoFina{
+    border: none;
+    background-color:transparent;
+}
+.btnPagoFinal{
+    width: 70%;
+    border:none;
+    background-color: #0AC763;
+    padding: 2% 3%;
+    border-radius:4px;
+    color: white;
+}
+
+.divInputNumerosTarjeta{
+    display:initial
+}
+
+
+.pesoCarFinal{
+    align-items: center;
+    display: flex;
+    padding: 0 4%;
+    box-shadow: 0 10px 10px -9px black;
+    margin: 0 3%;
+    font-size: 1.2rem;
+    height: 40px;
+    width: 35%;
+
+}
+
+.input-icono-tarjeta {
+    background-image: url('../images/logoMaster.png');
+    background-repeat: no-repeat;
+    background-position: right 45%;
+    background-size: 30px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    padding: 3%;
+    padding-left: 4%;
+    border: .2px solid rgba(60, 66, 87, 0.12);
+    border-radius: 7px;
+    width: 70%;
+    background-color:white
+  }
+
+  #modalPagoFinal{
+      width: 100%;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  #modalPagoFinal img{
+      width: 20%;
+      padding-top: 5%;
+  }
+
+  .btnAgregarMásFinal{
+    width: 40%;
+    border:none;
+    background-color: #0AC763;
+    padding: 2%;
+    border-radius:8px;
+    color: white;
+    margin: 4% 0;
+}
+
+
+#exampleModalFinal{
+
+    margin-top: 6%
+
+}
+
 
 
 /*footer*/
@@ -164,16 +723,18 @@ main{
     display: flex;
     justify-content:space-between;
     align-items:center;
-    padding:3% 7% 3% 3%;
+    padding:4% 0;
+    text-align:center;
+}
+
+.columFooter{
+    display: flex; 
+    justify-content:center;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 
-.footer li{
-    list-style:none;
-    font-weight: 600;
-    margin: 12% 0;
-    
-}
 
 .columFooter a{
     text-decoration:none;
@@ -181,10 +742,16 @@ main{
     font-weight: 600;
 }
 
+.columFooter h4{
+    color: #FC462D;
+    font-weight:700
+}
+
 .copy{
     text-align: center;
     padding: 1.5% 0;
     color: gray;
     background-color:white;
+    border-top: .2px solid #d1d0d0
 
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <main>
+
+
+        <div class="container-fluid">
+            <div class="row contenedorBodyRow">
+                <div class="col-sm-6 productosPago" id="productosPago">
+
+                </div>
+
+                <div class="col-sm-6 pago">
+                    <form id="form">
+
+                        <label class="label"> Correo Electronico</label>
+                        <input class="inputPagoFinal" type="text" placeholder="pepito@gmail.com">
+                        <br>
+
+                        <div class="divInputNumerosTarjeta">
+                            <label class="label">Información de la Tarjeta </label>
+
+                            <div class="input-icono-tarjeta">
+                                <input class="inputPagoFina" type="text" name="" id=""
+                                    placeholder="1234 5678 9000 1234">
+                            </div>
+
+                            <input class="inputPagoFinalData" type="month" placeholder="05/12">
+                            <input class="inputPagoFinalData" type="number" placeholder="123">
+                            <br>
+                        </div>
+
+                        <label class="label"> Nombre de la Trajeta</label>
+                        <input class="inputPagoFinal" type="text" placeholder="Pepito Perez">
+                        <br>
+
+                        <button id="btnPagoFinal" class="btnPagoFinal" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalFinal">Pagar total</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-----------modal---------->
+
+        <div class="modal fade" id="exampleModalFinal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body" id="modalPagoFinal">
+                        <img src="./images/pago.png" width="50%"> <br>
+
+                        <h5>¡Gracias por tu compra!</h5>
+                        <button id="btnSeguirComprando" class="btnAgregarMásFinal">Seguir Comprando</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="./script/pago.js"></script>
+</body>
+
+</html>

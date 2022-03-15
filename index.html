@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -26,12 +26,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <img src="./images/iconUbicacion.png" class="iconUbica">
-                    <h5>
-                        asdzsfzsfszfzsdfzsdfzsf
-                    </h5>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btnCiudad">
+                        <h5>
+                            asdzsfzsfszfzsdfzsdfzsfssasg
+                        </h5>
+                    </button>
 
-                    <a href="#" class="icon"><img src="./images/iconCarro.png" class="imgIcon" id="carrito">
-                        Text
+                    <a href="#" class="icon" id="carrito"><img src="./images/iconCarro.png" class="imgIcon"
+                            data-bs-toggle="modal" data-bs-target="#exampleModalCarrito">
+                        <h5 id="cantidadText">0</h5>
                     </a>
 
                 </div>
@@ -40,7 +43,7 @@
     </header>
 
 
-    <main>
+    <main id="main">
         <section class="publicidad">
             <div class="container-fluid divTexto">
                 <div class="textos">
@@ -54,102 +57,8 @@
         <section class="sectionCards" id="ofertas">
             <h3>Ofertas</h3>
 
-            <div class="cardss">
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
+            <div class="cardss" id="cards">
 
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
             </div>
 
         </section>
@@ -158,123 +67,115 @@
         <section class="sectionCards" id="populares">
             <h3>Los más populares</h3>
 
-            <div class="cardss">
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
+            <div class="cardss" id="cardsPopulares">
 
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
-
-                <div class="tarjetas">
-                    <div class="descuento">
-                        <h6>descuento</h6>
-                    </div>
-                    <img src="./images/limon.png">
-                    <div class="divText">
-                        <h3 class="precio">dadadaasf</h3>
-                        <p>ASfzsfsdgsg asfzdsgzsg gdgag</p>
-                        <br><br>
-
-                        <p>sfzsdfzsdfzsdg</p>
-                    </div>
-
-                    <button class="nombre">Agregar</button>
-                </div>
             </div>
 
         </section>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" id="btnCloseUno" data-bs-dismiss="modal"
+                            aria-label="Close">x</button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>¿Dónde quieres recibir tu pedido?</h4>
+                        <p>Para poder ofrecerte productos dentro de tu área, necesitamos tu dirección</p>
+
+                        <div class="input-icono">
+                            <input class="inputModal" type="text" name="" id="" placeholder="Ingrese su Dirección">
+                        </div>
+
+                        <br>
+                        <button type="button" class="btnModal" data-bs-dismiss="modal">Buscar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--Modal detalle-->
+
+        <div class="modal fade" id="exampleModalDos" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered detalle" id="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" id="btnCloseDos" data-bs-dismiss="modal"
+                            aria-label="Close">X</button>
+                    </div>
+                    <div class="modal-body-detalle">
+                        <div class="content-fluid" id="contenidoModalDetalle">
+                            <div class="row" id="modalDetalle">
+
+
+                            </div>
+
+                            <div class="row" id="cardsss">
+                                <h3 class="h3CardsDetalle">Productos Relacionados</h3><br>
+                                <div class="cardsss" id="cardss">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
     </main>
+
+
+    <!-- Modal carrito-->
+
+
+    <div class="modal fade" id="exampleModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" id="modal-dialog">
+            <div class="modal-content" id="modal-content-carrito">
+                <div class="modal-header" id="modal-header-carrito">
+                    <h6 class="modal-title" id="exampleModalLabel">Entregar en: <strong>SADSFFGHFHFDFGGHGHD</strong>
+                    </h6>
+                    <button type="button" id="btn-close-carro" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close">X</button>
+                </div>
+                <div class="modal-body" id="modal-body-carrito">
+
+
+                </div>
+
+                <div class="modal-footer" id="modal-footer-carrito">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <footer>
         <div class="container-fluid footer">
             <div class="columFooter">
                 <div>
-                    <h4>¿Dónde Estamos?</h4>
+                    <h4>Ubicación</h4>
                 </div>
-                
+
                 <br>
-                <ul>
-                    <li><a href="">Bogotá</a></li>
-                    <li><a href="">Duitama</a></li>
-                    <li><a href="">Cúcuta</a></li>
-                </ul>
+
+                <a href="">Bogotá</a>
+                <a href="">Duitama</a>
+                <a href="">Cúcuta</a>
+
             </div>
 
             <div class="columFooter">
@@ -282,25 +183,24 @@
                 <div>
                     <h4>Nosotros</h4>
                 </div>
-                
+
                 <br>
-                <ul>
-                    <li>Calidad</a></li>
-                    <li>Responsabilidad</a></li>
-                    <li>Buen precio</a></li>
-                </ul>
+                
+                <a href="">Calidad</a>
+                <a href="">Responsabilidad</a>
+                <a href="">Buen precio</a>
+
             </div>
 
             <div class="columFooter">
                 <div>
                     <h4>Categorías</h4>
                 </div>
-                
+
                 <br>
-                <ul>
-                    <li><a href="#carrito">Carrito</a></li>
-                    <li><a href="#populares">Populares</a></li>
-                    <li><a href="#ofertas">Ofertas</a></li>
+                <a href="#carrito">Carrito</a>
+                <a href="#populares">Populares</a>
+                <a href="#ofertas">Ofertas</a>
                 </ul>
             </div>
 
@@ -308,16 +208,15 @@
                 <div>
                     <h4>Redes</h4>
                 </div>
-                
+
                 <br>
-                <ul>
-                    <li><a href="https://github.com/andreaguerrero8">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/andreina-rodr%C3%ADguez-65814219b">Linkedin</a></li>
-                    <li><a href="https://www.instagram.com/">Instagram</a></li>
-                    
-                </ul>
+                <a href="https://github.com/andreaguerrero8">GitHub</a>
+                <a href="https://www.linkedin.com/in/andreina-rodr%C3%ADguez-65814219b">Linkedin</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+
+
             </div>
-            
+
         </div>
 
         <div class="copy">
@@ -332,6 +231,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>
