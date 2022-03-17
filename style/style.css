@@ -226,7 +226,7 @@ main{
 
 .btnCiudad{
     border: none;
-    padding:0 2%;
+    padding:0 2% 0 1%;
     background-color:transparent;
     border-right: 2px solid grey;
 }
@@ -242,7 +242,7 @@ main{
     padding: 4%;
     padding-left: 40px;
     border: 1px solid rgb(165, 165, 165);
-    border-radius: 5px
+    border-radius: 5px;
   }
 
   .input-icono input:focus {
@@ -356,6 +356,7 @@ main{
     background-color:transparent;
 
 }
+
 #textCantidad{
     outline: none;
     width: 35%;
@@ -363,8 +364,6 @@ main{
     text-align: center;
 }
 
-
-/**---- cards Dentro de detalle-----**/
 
 /**---- cards Dentro de detalle-----**/
 
@@ -578,6 +577,23 @@ span{
 }
 
 
+.btnPesoIncrementoCarro{
+    width: 1.5rem;
+    height:2rem;
+    border:none;
+    background-color:transparent;
+
+}
+
+.btnPesoDecrementoCarro{
+    width: 1.5rem;
+    height:2rem;
+    border:none;
+    background-color:transparent;
+
+}
+
+
 
 /*-------------pagina Pago------------------*/
 
@@ -708,9 +724,7 @@ span{
 
 
 #exampleModalFinal{
-
     margin-top: 6%
-
 }
 
 

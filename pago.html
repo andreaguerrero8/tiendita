@@ -17,34 +17,34 @@
     <main>
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="envioForm">
             <div class="row contenedorBodyRow">
-                <div class="col-sm-6 productosPago" id="productosPago">
+                <div class="col-6 productosPago" id="productosPago">
 
                 </div>
 
-                <div class="col-sm-6 pago">
+                <div class="col-6 pago">
                     <form id="form">
 
                         <label class="label"> Correo Electronico</label>
-                        <input class="inputPagoFinal" type="text" placeholder="pepito@gmail.com">
+                        <input class="inputPagoFinal" type="text" placeholder="pepito@gmail.com" id="correo" value="pepito@gmail.com">
                         <br>
 
                         <div class="divInputNumerosTarjeta">
                             <label class="label">Información de la Tarjeta </label>
 
                             <div class="input-icono-tarjeta">
-                                <input class="inputPagoFina" type="text" name="" id=""
-                                    placeholder="1234 5678 9000 1234">
+                                <input class="inputPagoFina" type="text" id="numero"
+                                    placeholder="1234 5678 9000 1234" value="1234 5678 9000 1234">
                             </div>
 
-                            <input class="inputPagoFinalData" type="month" placeholder="05/12">
-                            <input class="inputPagoFinalData" type="number" placeholder="123">
+                            <input class="inputPagoFinalData" type="month" placeholder="05/12" id="dato1" value="05/12">
+                            <input class="inputPagoFinalData" type="number" placeholder="123" id="dato2" value="123">
                             <br>
                         </div>
 
                         <label class="label"> Nombre de la Trajeta</label>
-                        <input class="inputPagoFinal" type="text" placeholder="Pepito Perez">
+                        <input class="inputPagoFinal" type="text" placeholder="Pepito Perez" id="nombre" value="Pepito Perez">
                         <br>
 
                         <button id="btnPagoFinal" class="btnPagoFinal" class="btn btn-primary" data-bs-toggle="modal"

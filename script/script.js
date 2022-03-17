@@ -5,60 +5,73 @@ let modalDetalle = document.getElementById('modalDetalle');
 let cardss = document.getElementById('cardss');
 
 let cantidad = 0;
-let unidades= 1;
 let carrito = [];
-let suma = 0;
+
+let subtotal = 0;
+let sumaTotal = 0
 
 let main = document.getElementById('main')
-let carritoBtn =  document.getElementById('carrito')
-let cantidadText =  document.getElementById('cantidadText')
-let modalBodyCarrito =  document.getElementById('modal-body-carrito')
-let modalBodyFooter =  document.getElementById('modal-footer-carrito')
+let carritoBtn = document.getElementById('carrito')
+let cantidadText = document.getElementById('cantidadText')
+let modalBodyCarrito = document.getElementById('modal-body-carrito')
+let modalBodyFooter = document.getElementById('modal-footer-carrito')
 
 let btnCloseUno = document.getElementById('btnCloseUno')
 let btnCloseDos = document.getElementById('btnCloseDos')
 let btnCloseCarro = document.getElementById('btn-close-carro')
 
 
+let unidades = 1;
+localStorage.setItem('Unidades', JSON.stringify(unidades))
+let uni = JSON.parse(localStorage.getItem('Unidades'))
 
+
+let navbarSupportedContent = document.getElementById('navbarSupportedContent')
+let ubicacion = document.getElementById('ubicacion')
+let form = document.getElementById('form');
+let search = document.getElementById('search');
+
+
+apiProductos = 'https://mytiendaa.herokuapp.com/productos';
+apiCiudades = 'https://mytiendaa.herokuapp.com/Ciudades';
 
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
     //-------------------mostrar la cantidad de productos en el carrito----------------------------------//
     let hayAlgoLocal = JSON.parse(localStorage.getItem('Carrito'));
-        if (hayAlgoLocal !== null) {
-            
-            hayAlgoLocal.forEach(element=>{
+    if (hayAlgoLocal !== null) {
 
-                cantidad = Number(cantidad) + Number(element.cantidad)
-            })
-            cantidadText.textContent = cantidad
-            
-        }
-        else {
-            cantidad = 0;
-            cantidadText.textContent = cantidad
-        }
-})
+        hayAlgoLocal.forEach(element => {
 
+            cantidad = Number(cantidad) + Number(element.cantidad)
+        })
+        cantidadText.textContent = cantidad
 
-apiProductos = 'https://mytiendaa.herokuapp.com/productos';
+    }
+    else {
+        cantidad = 0;
+        cantidadText.textContent = cantidad
+    }
 
-
-document.addEventListener('DOMContentLoaded', () => {
     enviarData(apiProductos);
 })
 
-const enviarData = async (url) => {
 
+const enviarData = async (url) => {
     const resp = await fetch(url);
     const data = await resp.json();
-
     mostrarCards(data);
-
 }
 
+//----------------boton carrito-------------------//
+carritoBtn.addEventListener('click', (e) => {
+    mostrarContenidoCarro()
+})
+
+
+
+//--------------------mostrar Cards en en main-------------------------//
 const mostrarCards = (data) => {
 
     cards.innerHTML = ''
@@ -117,6 +130,9 @@ const mostrarCards = (data) => {
     });
 }
 
+
+//-------------modal de datelle--------------//
+
 main.addEventListener('click', async (e) => {
     e.preventDefault();
 
@@ -128,6 +144,7 @@ main.addEventListener('click', async (e) => {
         const resp = await fetch(apiProductos);
         const datos = await resp.json();
 
+        //------------filtrado por id del producto seleccionado---------------------//
         const dato = datos.find(list => list.id == Number(id));
 
         let queHay = JSON.parse(localStorage.getItem('Detalle'));
@@ -140,8 +157,49 @@ main.addEventListener('click', async (e) => {
         }
 
 
-        modalDetalle.innerHTML = ''
-        modalDetalle.innerHTML += `
+
+        if (dato.categoria == 'oferta') {
+
+            modalDetalle.innerHTML = ''
+            modalDetalle.innerHTML += `
+
+                <div class="col-6">
+                    <img src="${dato.imagen}" width="95%">
+                </div>
+                <div class="col-6">
+                    <h4>${dato.nombre}</h6>
+                    <h6>- $${dato.oferta} /Kg</h6>
+                    <p class="iva">Precios con IVA incluido</p>
+                    <p class="pesoAprox">Peso aproximado por pieza, puede variar de acuerdo al peso
+                        real.</p><br>
+
+                    <h6>Seleccione la madurez que deseas</h6>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Por elegir</option>
+                        <option value="1">Maduro (Para Hoy)</option>
+                        <option value="2">Normal (3-5 días)</option>
+                        <option value="3">Verde (7 días)</option>
+                    </select><br>
+
+                    <div class="contBtnsPeso" id="${dato.id}">
+
+                        <div class="pesoBtns"> 
+                            <button class="btnPesoDecremento" id="${id}"> - </button>
+                            <h4 id="textCantidad">${uni}U</h4>
+                            <button class="btnPesoIncremento" id="${id}s"> + </button>
+                        </div>
+
+                        <button id="agregarCarrito" class="agregarDetalle">Agregar</button>
+
+                    </div>
+                </div>
+
+        `
+
+        } else {
+
+            modalDetalle.innerHTML = ''
+            modalDetalle.innerHTML += `
 
                 <div class="col-6">
                     <img src="${dato.imagen}" width="95%">
@@ -164,9 +222,9 @@ main.addEventListener('click', async (e) => {
                     <div class="contBtnsPeso" id="${dato.id}">
 
                         <div class="pesoBtns"> 
-                            <button class="btnPesoDecremento" id="btnDecremento"> - </button>
-                                <input type="number" id="textCantidad" value="1" min="1">U</p> 
-                            <button class="btnPesoIncremento" id="btnIncremento"> + </button>
+                            <button class="btnPesoDecremento" id="${id}"> - </button>
+                            <h4 id="textCantidad">${uni}U</h4>
+                            <button class="btnPesoIncremento" id="${id}s"> + </button>
                         </div>
 
                         <button id="agregarCarrito" class="agregarDetalle">Agregar</button>
@@ -174,9 +232,11 @@ main.addEventListener('click', async (e) => {
                     </div>
                 </div>
 
-        `;
+        `
 
+        }
 
+        //-----------mostrar productos "Productos relacionados" dentro del modal detalle----------------------------//
 
         datos.forEach(element => {
 
@@ -203,49 +263,108 @@ main.addEventListener('click', async (e) => {
     
                         <button id="${id}" class="agregar" data-bs-toggle="modal" data-bs-target="#exampleModalDos">Agregar</button>
                     </div>
-                                
-
-
+                            
                 `
-
             }
         })
-
     }
 })
 
 
 modalDetalle.addEventListener('click', (e) => {
+
     e.preventDefault();
 
     let btnAgregarCarrito = e.target.classList.contains('agregarDetalle');
-    /*let btnIncremento = e.target.classList.contains('btnPesoIncremento');
-    let btnDecremento = e.target.classList.contains('btnPesoDecremento');*/
+    let btnIncremento = e.target.classList.contains('btnPesoIncremento');
+    let btnDecremento = e.target.classList.contains('btnPesoDecremento');
+
+
+    if (btnIncremento) {
+
+        unidades = unidades + 1;
+        localStorage.setItem('Unidades', JSON.stringify(unidades));
+
+        let productoHay = JSON.parse(localStorage.getItem('Detalle'));
+
+        productoHay.cantidad = (Number(productoHay.cantidad) + 1)
+        localStorage.setItem('Detalle', JSON.stringify(productoHay))
+
+
+    }
+
+
+    if (btnDecremento) {
+
+        if (unidades == 1) {
+            unidades = 1;
+            localStorage.setItem('Unidades', JSON.stringify(unidades));
+
+        } else {
+            unidades = unidades - 1;
+            localStorage.setItem('Unidades', JSON.stringify(unidades));
+        }
+
+
+        let productoHay = JSON.parse(localStorage.getItem('Detalle'));
+        if (productoHay.cantidad == 1) {
+            productoHay.cantidad = 1
+
+            localStorage.setItem('Detalle', JSON.stringify(productoHay))
+        }
+        else {
+
+            productoHay.cantidad = (Number(productoHay.cantidad) - 1)
+
+            localStorage.setItem('Detalle', JSON.stringify(productoHay))
+
+        }
+
+    }
 
     if (btnAgregarCarrito) {
 
         let producto = JSON.parse(localStorage.getItem('Detalle'));
-        alert('Su producto fue agregado al carrito con exito')
+        let productoCarro;
 
-        let productoCarro = {
-            nombre: producto.nombre,
-            imagen: producto.imagen,
-            precio: producto.precio,
-            cantidad: producto.cantidad,
-            id : producto.id
 
+        if (producto.categoria == 'oferta') {
+
+            subtotal = producto.oferta * unidades
+
+            productoCarro = {
+                nombre: producto.nombre,
+                imagen: producto.imagen,
+                precio: producto.oferta,
+                cantidad: unidades,
+                id: producto.id,
+                subtotal: subtotal
+
+            }
+        } else {
+            subtotal = producto.precio * unidades
+
+            productoCarro = {
+                nombre: producto.nombre,
+                imagen: producto.imagen,
+                precio: producto.precio,
+                cantidad: unidades,
+                id: producto.id,
+                subtotal: subtotal
+
+            }
         }
 
+        let llaveCarrito = JSON.parse(localStorage.getItem('Carrito'));
 
-        let KeyCarrito = JSON.parse(localStorage.getItem('Carrito'));
 
-        if (KeyCarrito !== null) {
-            KeyCarrito.unshift(productoCarro)
-            localStorage.setItem('Carrito', JSON.stringify(KeyCarrito))
+        if (llaveCarrito !== null) {
+            llaveCarrito.unshift(productoCarro)
+            localStorage.setItem('Carrito', JSON.stringify(llaveCarrito))
 
             cantidad = Number(cantidad) + Number(producto.cantidad)
             cantidadText.textContent = cantidad
-            
+
         }
         else {
             carrito.unshift(productoCarro)
@@ -256,99 +375,42 @@ modalDetalle.addEventListener('click', (e) => {
 
         }
 
-    }
-
-})
-
-
-/*
-divCanti.addEventListener('click', (e) => {
-
-    let btnIncremento = e.target.classList.contains('btnPesoIncremento');
-    let btnDecremento = e.target.classList.contains('btnPesoDecremento');
-
-
-    if(btnIncremento){
-
-        unidades = unidades + 1;
-        
-        console.log(a);
-        
-    }
-    if(btnDecremento){
-
-        unidades = unidades - 1;
-        console.log(unidades);
-    }
-})*/
-
-
-
-
-
-carritoBtn.addEventListener('click', (e) =>{
-    mostrarContenidoCarro()
-})
-
-
-
-modalBodyCarrito.addEventListener('click', (e)=>{
-    btnCarritoVacioAgregar = e.target.classList.contains('agregarDetalleVacio');
-   
-
-    ////---------------------(CRUD) ELIMINAR PRODUCTOS DEL CARRITO---------------------------------------------//
-
-    let btnCarritoEliminar = e.target.classList.contains('btnPesoDecremento');
-    let productoCarritoEliminar = JSON.parse(localStorage.getItem('Carrito'));
-
-    if(btnCarritoEliminar){
-        let id = e.target.id
-        let filtro = productoCarritoEliminar.find(element => element.id == Number(id));
-
-        console.log(filtro);
-
-        productoCarritoEliminar.forEach((elemento, index) => {
-            if (elemento.id === filtro.id) {
-                productoCarritoEliminar.splice(index, 1)
-                localStorage.setItem('Carrito', JSON.stringify(productoCarritoEliminar))
-
-                mostrarContenidoCarro()
-
-            
-            }
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `¡Producto Agregado al Carrito! <br>
+            Sigue comprando o dirijete al carro para hacer tu pago`,
+            showConfirmButton: false,
+            timer: 5000
         })
-    }
-    //-------------------------------------------------------------------------------------------------------//
 
-    if(btnCarritoVacioAgregar){
-        window.location.reload()
+        unidades = 1;
+        localStorage.setItem('Unidades', JSON.stringify(unidades))
+
     }
+
+
 })
-
-
-
 
 
 //------------CRUD (CREAR) mostrar datos en el carrito------------------//
 
-const mostrarContenidoCarro =() =>{
+const mostrarContenidoCarro = () => {
+
+    let suma = 0;
 
     //vuelve a revisar el carro
     let datosCarro = JSON.parse(localStorage.getItem('Carrito'));
 
-    console.log(datosCarro)
-    
-
-    if (datosCarro !== null && datosCarro != '' ) {
+    if (datosCarro !== null && datosCarro != '') {
 
         modalBodyCarrito.innerHTML = ''
 
         datosCarro.forEach(element => {
 
-            const {nombre, precio, imagen, cantidad, id} = element;
+            const { nombre, precio, imagen, cantidad, id, subtotal } = element;
 
-
-            suma = Number(suma) + Number(precio);
+            suma = suma + subtotal;
 
             modalBodyCarrito.innerHTML += `
                 <div class="modalito">
@@ -362,19 +424,17 @@ const mostrarContenidoCarro =() =>{
                     </div>
 
                     <div class="pesoCar"> 
-                        <button class="btnPesoDecremento" id="${id}"> - </button>
-                        <input type="number" id="textCantidad" value="1">U
-                        <button class="btnPesoIncremento"> + </button>
+                        <button class="btnPesoDecrementoCarro" id="${id}"> - </button>
+                        <p id="textCantidad"> ${cantidad}U </p>
+                        <button class="btnPesoIncrementoCarro" id="${id}s"> + </button>
                     </div>
                 </div> <br>         
             `;
         })
 
-            localStorage.setItem('Total', JSON.stringify(suma));
-            
 
-            modalBodyFooter.innerHTML = '';
-            modalBodyFooter.innerHTML += ` 
+        modalBodyFooter.innerHTML = '';
+        modalBodyFooter.innerHTML += ` 
             <div class="vaciar">
                 <button class="btnVaciarCanasta">Vaciar canasta</button>
             </div>
@@ -386,7 +446,7 @@ const mostrarContenidoCarro =() =>{
             </button>
 
             `
-    }else {
+    } else {
 
         modalBodyCarrito.innerHTML = ''
 
@@ -403,10 +463,172 @@ const mostrarContenidoCarro =() =>{
     }
 }
 
+const mostrarCarro = (e) => {
 
+    btnCarritoVacioAgregar = e.target.classList.contains('agregarDetalleVacio');
+
+    ////---------------------(CRUD) ELIMINAR y agregar PRODUCTOS DEL CARRITO---------------------------------------------//
+
+    let btnCarritoEliminar = e.target.classList.contains('btnPesoDecrementoCarro');
+    let btnCarritoAgregar = e.target.classList.contains('btnPesoIncrementoCarro');
+    let productoCarritoEliminar = JSON.parse(localStorage.getItem('Carrito'));
+
+    if (btnCarritoEliminar) {
+        let id = e.target.id
+        let filtro = productoCarritoEliminar.find(element => element.id == Number(id));
+
+        productoCarritoEliminar.forEach((elemento, index) => {
+
+            if (elemento.id === filtro.id) {// estoy en el producto a modificar
+
+                if (elemento.cantidad == '1') {
+                    productoCarritoEliminar.splice(index, 1)
+                    localStorage.setItem('Carrito', JSON.stringify(productoCarritoEliminar))
+
+
+                    mostrarContenidoCarro()
+
+                } else {
+
+                    let MenosUno = (Number(elemento.cantidad) - 1)
+                    let MenosSubtotal = (Number(elemento.subtotal) - Number(elemento.precio))
+                    filtro.cantidad = MenosUno;
+                    filtro.subtotal = MenosSubtotal
+
+                    console.log(filtro);
+
+                    productoCarritoEliminar.splice(index, 1, filtro)
+                    localStorage.setItem('Carrito', JSON.stringify(productoCarritoEliminar))
+
+
+                    mostrarContenidoCarro()
+                }
+            }
+        })
+    } else {
+        if (btnCarritoAgregar) {
+
+            let id = ((e.target.id).slice(0, 1))
+
+            console.log(id)
+            let filtro = productoCarritoEliminar.find(element => element.id == Number(id));
+
+            productoCarritoEliminar.forEach((elemento, index) => {
+
+                if (elemento.id === filtro.id) {// estoy en el producto a modificar
+
+
+                    let MasUno = (Number(elemento.cantidad) + 1)
+                    let MasSubtotal = (Number(elemento.subtotal) + Number(elemento.precio))
+                    filtro.cantidad = MasUno;
+                    filtro.subtotal = MasSubtotal
+
+                    console.log(filtro);
+
+                    productoCarritoEliminar.splice(index, 1, filtro)
+                    localStorage.setItem('Carrito', JSON.stringify(productoCarritoEliminar))
+
+
+                    mostrarContenidoCarro()
+
+                }
+
+            })
+        }
+    }
+    //-------------------------------------------------------------------------------------------------------//
+
+    if (btnCarritoVacioAgregar) {
+        window.location.reload()
+    }
+
+}
+////---------------------modal carrito------------------/////
+modalBodyCarrito.addEventListener('click', (e) => {
+
+    mostrarCarro(e)
+
+})
+
+
+modalBodyFooter.addEventListener('click', (e) => {
+    let btnVaciarCanasta = e.target.classList.contains('btnVaciarCanasta')
+
+    if (btnVaciarCanasta) {
+
+        Swal.fire({
+            title: '¿Seguro?',
+            text: "¿Esta seguro que desea vaciar la canasta",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0AC763',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Estoy Seguro!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Canasta Vacía!',
+                )
+
+                localStorage.clear()
+                mostrarContenidoCarro()
+            }
+        })
+
+
+
+    }
+
+})
 
 
 btnCloseCarro.addEventListener('click', () => {
-    window.location.reload()
+    unidades = 1;
+    localStorage.setItem('Unidades', JSON.stringify(unidades))
+    window.location.reload() // para actualizar la cantidad y se vea la cantidad de productos en el carro
+
 })
 
+
+search.addEventListener('keyup', async (e) => {
+
+    let divGrandeUbica =  document.getElementById('divGrandeUbica');
+
+    const resp = await fetch(apiCiudades);
+    const data = await resp.json();
+
+    let text = e.target.value;
+
+    let filtro = data.filter(element => (element.nombreCiudad).toLowerCase().includes((text).toLowerCase()))
+
+
+    filtro.forEach(element =>
+        {
+            divGrandeUbica.innerHTML = `
+                              
+                <option class="input-icono" id="option" value="${element.nombreCiudad}">
+                     ${element.nombreCiudad}
+                </option>
+            
+            
+            `
+        })
+})
+
+
+let bodyUbica =  document.getElementById('bodyUbica')
+
+bodyUbica.addEventListener('click', (e) =>{
+
+    let btnBuscar = e.target.classList.contains('btnModal');
+    let option = document.getElementById('option')
+    let ubication = document.getElementById('ubication')
+
+    if (btnBuscar){
+        let seleccion = option.value;
+
+        ubication.textContent = seleccion
+        
+        
+    }
+})
